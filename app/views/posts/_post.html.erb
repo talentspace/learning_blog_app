@@ -1,0 +1,23 @@
+ <div class="post">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1 class="post-title">
+        <% if params[:action] == 'show' %>
+          <%= post.title %>
+        <% else %>
+          <%= link_to post.title, post_path(post) %>
+        <% end %>
+      </h1>
+      <div class="meta-data">
+        <p><%= post.created_at.strftime('%e %b %Y') %></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        <%= post.body %>
+      </p>
+    </div>
+  </div>
+</div>

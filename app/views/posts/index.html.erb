@@ -1,1 +1,19 @@
-<h1>This is our index page</h1>
+<div class="container">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1><%= post.title %></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            <%= post.body %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <hr />
+  <% end %>
+</div>

@@ -10,6 +10,7 @@
       </h1>
       <div class="meta-data">
         <p><%= post.created_at.strftime('%e %b %Y') %></p>
+        <%= link_to 'delete', destroy_post_path(post), method: :delete %>
       </div>
     </div>
   </div>

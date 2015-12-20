@@ -1,3 +1,5 @@
+<div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+
 <% @posts.each do |post| %>
   <%= render partial: 'post', locals: { post: post } %>
   <hr />

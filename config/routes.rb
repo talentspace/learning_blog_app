@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get '/posts' => 'posts#index'
   get '/posts/new' => 'posts#new', as: :new_post
   get '/posts/:id' => 'posts#show', as: :post
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
   get '/posts/:id/edit' => 'posts#edit'
   patch '/posts/:id' => 'posts#update'
   delete '/posts/:id' => 'posts#destroy', as: :destroy_post
+
+  post '/posts/:post_id/comments' => 'comments#create', as: :post_comments
 
   root 'posts#index'
 

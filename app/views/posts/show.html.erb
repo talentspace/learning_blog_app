@@ -2,3 +2,19 @@
   <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
 <% end %>
 <%= render partial: 'post', locals: { post: @post } %>
+
+<hr />
+
+<h2>Comments</h2>
+
+<%= form_for @comment, url: post_comments_path(@post) do |f| %>
+  <%= f.text_area :body, style: 'width: 100%' %>
+  <br />
+  <%= f.submit 'Submit' %>
+<% end %>
+
+<br />
+
+<% @post.comments.each do |comment| %>
+  <p><%= comment.body %></p>
+<% end %>

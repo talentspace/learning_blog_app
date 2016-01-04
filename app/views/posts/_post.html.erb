@@ -9,7 +9,7 @@
         <% end %>
       </h1>
       <div class="meta-data">
-        <p><%= post.created_at.strftime('%e %b %Y') %></p>
+        <p><%= formatted_date(post) %></p>
         <%= link_to 'delete', destroy_post_path(post), method: :delete %>
       </div>
     </div>
@@ -19,6 +19,7 @@
       <p>
         <%= post.body %>
       </p>
+      <%= image_tag post.image.url(:medium) %>
     </div>
   </div>
 </div>

@@ -11,6 +11,10 @@ gem 'sass-rails', '~> 5.0'
 
 gem 'devise'
 
+gem "paperclip", "~> 4.3"
+gem 'will_paginate-bootstrap'
+
+
 
 # Twitter bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'

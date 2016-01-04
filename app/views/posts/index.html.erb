@@ -6,3 +6,5 @@
   <%= render partial: 'post', locals: { post: post } %>
   <hr />
 <% end %>
+
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>

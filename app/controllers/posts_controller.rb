@@ -6,14 +6,16 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.paginate(:page => params[:page], :per_page => 3)
+
+    respond_to do |format|
+      format.html
+      format.json { render text: @posts.to_json }
+    end
   end
 
   def create
-    title = params[:post][:title]
-    body = params[:post][:body]
-
-    Post.create title: title, body: body
+    post = Post.create post_params
 
     flash[:notice] = "Successfully created post"
 
@@ -52,5 +54,11 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
+  end
+
+  private
+
+  def post_params
+    params[:post].permit(:title, :body, :image)
   end
 end

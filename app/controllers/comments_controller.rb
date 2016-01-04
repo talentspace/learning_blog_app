@@ -8,6 +8,9 @@ class CommentsController < ApplicationController
 
     post.comments.create body: comment_body
 
-    redirect_to post_path(post)
+    respond_to do |format|
+      format.json { head :no_content }
+      format.html { redirect_to post_path(post) }
+    end
   end
 end
